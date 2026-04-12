@@ -2,7 +2,7 @@ package Session4;
 
 import java.util.Scanner;
 
-public class Pattern6 {
+public class Pattern3 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -11,11 +11,9 @@ public class Pattern6 {
         sc.close();
 
         for(int i=1;i<=n;i++) { // rows
-            for(int j=0;j<n-i;j++) { // n-i spaces
-                System.out.print(" ");
-            }
             for(int j=0;j<i;j++) { // i stars
-                System.out.print("*" + " ");
+                if((i+j)%2==0) System.out.print("#");
+                else System.out.print("*");
             }
             System.out.println();
         }
