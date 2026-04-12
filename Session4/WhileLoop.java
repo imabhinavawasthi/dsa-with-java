@@ -7,14 +7,12 @@ public class WhileLoop {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter x: ");
-        int x = sc.nextInt(); // 100->10->1->0
+        int x = sc.nextInt();
 
         while(x>0) {
             System.out.println(x);
             x/=10;
         }
-
-        // 100, 10, 1
 
         sc.close();
     }

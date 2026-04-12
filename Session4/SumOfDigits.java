@@ -10,7 +10,7 @@ public class SumOfDigits {
         int x = sc.nextInt();
         int sum = 0;
 
-        while(x>0) {
+        while(x>0) { // O(log10x)
             int  lastDigit = x%10;
             sum+=lastDigit;
             x/=10;
