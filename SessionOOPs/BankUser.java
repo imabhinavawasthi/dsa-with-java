@@ -16,5 +16,7 @@ public class BankUser {
         bankAccount.setPassword("2345675325");
 
         System.out.println(bankAccount.getBalance());
+
+        System.out.println(Math.max(2,3));
     }
 }
