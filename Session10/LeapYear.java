@@ -21,5 +21,8 @@ public class LeapYear {
         int year = sc.nextInt();
 
         checkLeapYear(year);
+
+        Area area1 = new Area();
+        area1.area(5);
     }
 }

@@ -1,6 +1,9 @@
 package Session9;
 
-public class Strings {
+import Session10.Area;
+import SessionOOPs.ModifierClass;
+
+public class Strings extends ModifierClass {
     public static void main(String[] args) {
         String str1 = "abc";
         String str2 = "abc";
@@ -17,5 +20,11 @@ public class Strings {
 
         System.out.println(a);
         System.out.println(a.length());
+
+        Area area1 = new Area();
+        area1.area(5);
+
+        ModifierClass obj = new ModifierClass();
+        obj.checkProtected();
     }
 }
