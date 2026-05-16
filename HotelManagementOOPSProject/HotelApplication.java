@@ -103,10 +103,10 @@ public class HotelApplication {
     /**
      * Displays a welcome message
      */
-    private void displayWelcome() {
+    private void displayWelcome(String name) {
         System.out.println("\n╔════════════════════════════════╗");
-        System.out.println("║  Welcome to Hotel Management    ║");
-        System.out.println("║         System v1.0             ║");
+        System.out.println("║      Welcome " + name + " to        ║");
+        System.out.println("║         Hotel PW               ║");
         System.out.println("╚════════════════════════════════╝\n");
     }
 
@@ -114,7 +114,9 @@ public class HotelApplication {
      * Main application loop
      */
     public void start() {
-        displayWelcome();
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        displayWelcome(name);
 
         while (true) {
             try {

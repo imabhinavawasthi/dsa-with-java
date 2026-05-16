@@ -18,6 +18,9 @@ public class Guest {
      */
     public Guest(String name, String phone, int guestId) {
         this.name = name;
+        if(phone.length()!=10) {
+            System.out.println("Invalid Phone Number");
+        }
         this.phone = phone;
         this.guestId = guestId;
     }
