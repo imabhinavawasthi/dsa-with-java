@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Inheritance;
 
 public class MultilevelInheritance {
     static class GrandFather {

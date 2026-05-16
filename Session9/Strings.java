@@ -1,7 +1,7 @@
 package Session9;
 
 import Session10.Area;
-import SessionOOPs.ModifierClass;
+import SessionOOPs.Encapsulation.ModifierClass;
 
 public class Strings extends ModifierClass {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Inheritance;
 
 public class Inheritance {
     static class Animal {

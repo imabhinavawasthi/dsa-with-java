@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Basics;
 
 public class ConstructorExample {
     static class Employee {

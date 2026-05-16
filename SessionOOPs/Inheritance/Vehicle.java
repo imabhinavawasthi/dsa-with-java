@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Inheritance;
 
 public class Vehicle {
     static class Car {

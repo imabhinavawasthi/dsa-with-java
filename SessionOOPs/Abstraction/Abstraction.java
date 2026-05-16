@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Abstraction;
 
 public class Abstraction {
     abstract static class Shape {

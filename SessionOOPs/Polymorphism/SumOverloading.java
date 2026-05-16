@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Polymorphism;
 
 // a,b,c
 // average of a,b,c

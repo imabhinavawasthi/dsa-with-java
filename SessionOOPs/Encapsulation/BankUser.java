@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Encapsulation;
 
 public class BankUser {
     public static void main(String[] args) {

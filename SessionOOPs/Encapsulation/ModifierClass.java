@@ -1,4 +1,4 @@
-package SessionOOPs;
+package SessionOOPs.Encapsulation;
 
 public class ModifierClass {
     protected static void checkProtected() {
