@@ -1,3 +1,5 @@
+package HotelManagementOOPSProject;
+
 /**
  * Room Entity Class
  * Represents a hotel room with availability status and occupant information

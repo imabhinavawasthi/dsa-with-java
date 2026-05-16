@@ -1,3 +1,5 @@
+package HotelManagementOOPSProject;
+
 /**
  * HotelManager Class - Service/Manager Layer
  * Manages hotel operations including room bookings and checkouts

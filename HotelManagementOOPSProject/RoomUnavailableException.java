@@ -1,3 +1,5 @@
+package HotelManagementOOPSProject;
+
 /**
  * Custom Exception Class
  * Thrown when a user attempts to book a room that is not available

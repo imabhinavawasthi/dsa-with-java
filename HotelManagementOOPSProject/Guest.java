@@ -1,3 +1,5 @@
+package HotelManagementOOPSProject;
+
 /**
  * Guest Entity Class
  * Represents a guest in the hotel management system

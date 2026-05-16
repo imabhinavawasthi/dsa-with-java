@@ -1,3 +1,4 @@
+package HotelManagementOOPSProject;
 /**
  * HotelApplication - UI Layer / Main Application Class
  * Handles user interaction and menu-driven interface for the Hotel Management System
