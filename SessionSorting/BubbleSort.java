@@ -23,6 +23,8 @@ public class BubbleSort {
             if(!isSwap) break; // array is already sorted
         }
 
+//        Arrays.sort(arr); // optimised - O(NlogN)
+
         System.out.println("After Sorting: " + Arrays.toString(arr));
 
         // Time Complexity:
