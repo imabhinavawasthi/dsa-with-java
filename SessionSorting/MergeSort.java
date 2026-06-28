@@ -39,7 +39,7 @@ public class MergeSort {
     }
     public static void mergeSort(int[] arr, int start, int end) { // O(logN)
         // base case
-        if(start==end) return;
+        if(start>=end) return;
 
         // divide
         int mid = (start+end)/2;
@@ -63,7 +63,7 @@ public class MergeSort {
             // Worst Case: O(NlogN)
             // Average Case: O(NlogN)
             // Best Case: O(NlogN)
-        // Space Complexity: O(1)
+        // Space Complexity: O(N)
 
         // Not Adaptable
         // Not in-place
