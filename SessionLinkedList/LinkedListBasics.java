@@ -60,6 +60,32 @@ public class LinkedListBasics {
 
         System.out.print("After inserting 5 after 3rd node: ");
         printLinkedList(head);
-    }
 
+        // delete the first node
+        head = head.next;
+
+        System.out.print("After deleting first node: ");
+        printLinkedList(head);
+
+        // delete the last node
+        temp = head;
+        while(temp.next.next!=null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+
+        System.out.print("After deleting last node: ");
+        printLinkedList(head);
+
+        // delete the kth node
+        k = 3;
+        temp = head;
+        for(int i=0;i<k-2;i++) {
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+
+        System.out.print("After deleting kth node: ");
+        printLinkedList(head);
+    }
 }
