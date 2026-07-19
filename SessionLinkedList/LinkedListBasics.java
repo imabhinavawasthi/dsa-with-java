@@ -6,12 +6,12 @@ class Node {
         this.next = null;
     }
     int val;
-    Node next;
+    CircularNode next;
 }
 
 public class LinkedListBasics {
-    public static void printLinkedList(Node head) {
-        Node temp = head;
+    public static void printLinkedList(CircularNode head) {
+        CircularNode temp = head;
         while(temp!=null) {
             System.out.print(temp.val + " ");
             temp = temp.next;
@@ -19,44 +19,44 @@ public class LinkedListBasics {
         System.out.println();
     }
     public static void main(String[] args) {
-        Node a = new Node(10);
-        Node b = new Node(4);
-        Node c = new Node(7);
+        CircularNode a = new CircularNode(10);
+        CircularNode b = new CircularNode(4);
+        CircularNode c = new CircularNode(7);
         a.next = b;
         b.next = c;
-        Node head = a;
+        CircularNode head = a;
 
         System.out.print("Initial LL: ");
         printLinkedList(head);
 
         // insert at the beginning
-        Node newNode = new Node(2);
-        newNode.next = head;
-        head = newNode;
+        CircularNode newCircularNode = new CircularNode(2);
+        newCircularNode.next = head;
+        head = newCircularNode;
 
         System.out.print("After inserting 2 at the beginning: ");
         printLinkedList(head);
 
         // insert at the end
-        newNode = new Node(9);
-        Node last = head;
+        newCircularNode = new CircularNode(9);
+        CircularNode last = head;
         while(last.next!=null) {
             last = last.next;
         }
-        last.next = newNode;
+        last.next = newCircularNode;
 
         System.out.print("After inserting 9 at the end: ");
         printLinkedList(head);
 
         // insert after kth node
         int k = 3;
-        newNode = new Node(5);
-        Node temp = head;
+        newCircularNode = new CircularNode(5);
+        CircularNode temp = head;
         for(int i=0;i<k-1;i++) {
             temp = temp.next;
         }
-        newNode.next = temp.next;
-        temp.next = newNode;
+        newCircularNode.next = temp.next;
+        temp.next = newCircularNode;
 
         System.out.print("After inserting 5 after 3rd node: ");
         printLinkedList(head);
