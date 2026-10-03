@@ -89,7 +89,22 @@ Session 47 - Movie Ticket Booking System/
 
 From the project root:
 ```bash
-cd "Mini Projects/Session 47 - Movie Ticket Booking System/src"
-javac Main.java model/*.java exception/*.java payment/*.java service/*.java
+cd src
+javac Main.java WebServer.java model/*.java exception/*.java payment/*.java service/*.java
 java Main
 ```
+
+The console application remains the default. To run the browser UI locally, use `java Main --web` instead of `java Main`, then open http://localhost:8080.
+
+## 4. Deploy to Render
+
+The project includes a `Dockerfile` for Render's Docker runtime.
+
+1. Push this project to a GitHub repository.
+2. In Render, choose **New +** → **Web Service**, connect the repository, and select **Docker** as the runtime.
+3. Leave the Docker build and start commands at their defaults. The Dockerfile compiles the Java sources and starts the web server.
+4. Deploy. Render provides the public URL after the build succeeds.
+
+The server binds to `0.0.0.0` and reads Render's `PORT` environment variable. For persistent bookings, attach a Render persistent disk mounted at `/var/data` and set `BOOKINGS_FILE` to `/var/data/bookings.txt` in the service's environment variables. Without a persistent disk, bookings are stored in the container's filesystem and may be lost when the service restarts or redeploys.
+
+This is an educational demo: the active user is shared by all visitors and the services keep data in memory, so it is not configured for real multi-user production use.

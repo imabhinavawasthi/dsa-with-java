@@ -3,12 +3,13 @@ import exception.*;
 import payment.*;
 import service.*;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    private static final String BOOKINGS_FILE = "bookings.txt";
+    private static final String BOOKINGS_FILE = System.getenv().getOrDefault("BOOKINGS_FILE", "bookings.txt");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("===============================================================");
         System.out.println("       WELCOME TO BOOKMYSHOW - MINI TICKET BOOKING SYSTEM      ");
         System.out.println("        Session 47 Java Mini Project 1 (Production Ready)      ");
@@ -27,9 +28,14 @@ public class Main {
         // 3. Load Persisted State if present
         bookingService.loadBookingsFromFile(BOOKINGS_FILE);
 
+        if (Arrays.asList(args).contains("--web")) {
+            new WebServer(movieService, showService, userService, bookingService, BOOKINGS_FILE).start();
+            return;
+        }
+
         // 4. Scanner CLI Menu
         Scanner scanner = new Scanner(System.in);
-        int currentUserId = 1; // Default logged-in user: Alice
+        int currentUserId = 1;
 
         boolean running = true;
         while (running) {
@@ -411,8 +417,8 @@ public class Main {
         if (b4 != null) b4.setStatus(SeatStatus.BOOKED);
 
         // Users
-        userService.registerUser(new User(1, "Alice Sharma", "alice@example.com"));
-        userService.registerUser(new User(2, "Bob Verma", "bob@example.com"));
-        userService.registerUser(new User(3, "Charlie Patel", "charlie@example.com"));
+        userService.registerUser(new User(1, "Abhinav Awasthi", "abhinav@example.com"));
+        userService.registerUser(new User(2, "Akash", "akash"));
+        userService.registerUser(new User(3, "Aman", "aman@example.com"));
     }
 }
