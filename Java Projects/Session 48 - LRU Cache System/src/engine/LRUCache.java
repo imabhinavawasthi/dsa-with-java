@@ -1,6 +1,7 @@
 package engine;
 
 import java.util.ArrayList;
+import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -153,5 +154,25 @@ public class LRUCache<K, V> {
             curr = curr.next;
         }
         return keys;
+    }
+
+    public synchronized List<Map.Entry<K, V>> getEntriesInMapOrder() {
+        List<Map.Entry<K, V>> entries = new ArrayList<>();
+        for (Map.Entry<K, Node<K, V>> entry : map.entrySet()) {
+            entries.add(new AbstractMap.SimpleImmutableEntry<>(entry.getKey(), entry.getValue().value));
+        }
+        return entries;
+    }
+
+    public synchronized long getHitCount() {
+        return hitCount;
+    }
+
+    public synchronized long getMissCount() {
+        return missCount;
+    }
+
+    public synchronized long getEvictionCount() {
+        return evictionCount;
     }
 }

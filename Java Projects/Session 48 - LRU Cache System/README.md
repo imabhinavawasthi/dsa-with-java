@@ -33,6 +33,8 @@ A complete, production-grade implementation of a **Least Recently Used (LRU) Cac
    - **Cache Miss (1500ms):** Fallback to `SlowDatabase`, populates cache, serves future requests instantly.
 5. **Multi-Thread Safety:**
    Synchronized core mutations prevent race conditions during concurrent cache access.
+6. **Interactive Web Dashboard:**
+   The Java HTTP server serves a quiz browser with live hit/miss telemetry and visualizations of the HashMap and MRU-to-LRU doubly linked list. Quiz requests use the same `QuizService` and `LRUCache` as the terminal demo.
 
 ---
 
@@ -50,6 +52,9 @@ Session 48 - LRU Cache System/
 │   │   └── SlowDatabase.java
 │   ├── service/
 │   │   └── QuizService.java
+│   ├── web/
+│   │   ├── QuizWebServer.java
+│   │   └── index.html
 │   └── Main.java
 └── README.md
 ```
@@ -60,7 +65,11 @@ Session 48 - LRU Cache System/
 
 From the project root:
 ```bash
-cd "Mini Projects/Session 48 - LRU Cache System/src"
-javac Main.java engine/*.java model/*.java database/*.java service/*.java
+cd src
+javac Main.java engine/*.java model/*.java database/*.java service/*.java web/*.java
 java Main
 ```
+
+Then open **http://localhost:8080**. The dashboard starts with a cache capacity of 3 and a simulated database delay of 1500 ms. Request a lesson from the quiz library to see the first miss populate the cache; request it again to see a hit promote its node to MRU. Request more than three different quizzes to observe LRU eviction.
+
+To use another port, run `java Main --port=8081`. To run the original interactive terminal demo, run `java Main --cli`.

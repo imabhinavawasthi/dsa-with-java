@@ -2,12 +2,35 @@ import database.SlowDatabase;
 import engine.LRUCache;
 import model.Quiz;
 import service.QuizService;
+import web.QuizWebServer;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        if (args.length > 0 && args[0].equals("--cli")) {
+            runCli();
+            return;
+        }
+
+        int port = args.length > 0 && args[0].startsWith("--port=")
+                ? Integer.parseInt(args[0].substring("--port=".length()))
+                : 8080;
+        if (args.length > 1 || (args.length == 1 && !args[0].startsWith("--port="))) {
+            throw new IllegalArgumentException("Usage: java Main [--port=8080 | --cli]");
+        }
+
+        int cacheCapacity = 3;
+        long databaseLatencyMs = 1500;
+        SlowDatabase database = new SlowDatabase(databaseLatencyMs);
+        QuizService quizService = new QuizService(cacheCapacity, database);
+        QuizWebServer webServer = new QuizWebServer(quizService, database, port);
+        webServer.start();
+        System.out.printf("Quiz cache dashboard is running at http://localhost:%d%n", port);
+        System.out.println("Use Ctrl+C to stop the server, or pass --cli to run the terminal demo.");
+    }
+
+    private static void runCli() {
         System.out.println("===============================================================");
         System.out.println("      SESSION 48: PRODUCTION-GRADE LRU CACHE & QUIZ PLATFORM   ");
         System.out.println("       High-Performance In-Memory Caching with Custom DLL     ");
